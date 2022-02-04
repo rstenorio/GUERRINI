@@ -18,9 +18,14 @@ public class Alunno {
     private String mail;
     private String telefono;
     private LocalDate dataInserimento = LocalDate.now();
-
+    private Esame[] libretto = new Esame[30];
 
     public Alunno() {
+    }
+
+    public Alunno(String nome, String cognome) {
+        this.nome = nome != null ? nome : "NN";
+        this.cognome = cognome != null ? cognome : "NN";
     }
 
     public Alunno(String nome, String cognome, String mail, String telefono) {
@@ -77,6 +82,18 @@ public class Alunno {
     public LocalDate getDataInserimento() {
         return dataInserimento;
     }
+
+    public void setLibretto(Esame esame) {
+        for (int i = 0; i < libretto.length; i++) {
+            if(libretto[i]==null){
+                libretto[i]=esame;
+                break;
+            }
+        }
+    }
+    
+    
+    
 
     public void stampaAlunno() {
         System.out.println("Nome=" + nome + "\nCognome=" + cognome + "\nMail=" + mail + "\nTelefone=" + telefono);
