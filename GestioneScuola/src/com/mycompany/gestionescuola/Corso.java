@@ -42,7 +42,7 @@ public class Corso {
         this.titoloCorso = titoloCorso;
         this.descrizione = "---";
         this.durataOre = durataOre;
-        setDataInizio(anno,mese,giorno);
+        setDataInizio(anno, mese, giorno);
     }
 
     public String getTitoloCorso() {
@@ -85,10 +85,10 @@ public class Corso {
      * imposta la data tra formato da data testo
      *
      * @param dataInizio formato YYYY-MM-DD es. 2022-02-02
-     * @return 
+     * @return
      */
     public boolean setDataInizio(String dataInizio) {
-        int yyyy,mm,d; 
+        int yyyy, mm, d;
         try {
             String parts[] = dataInizio.split("-");
 
@@ -139,6 +139,29 @@ public class Corso {
 
     }
 
+    String getInfo() {
+        String stampa = "\n---- SCHEDA CORSO ----";
+        stampa += "\nTitolo: " + this.titoloCorso;
+        stampa += "\nOre Durata: " + this.durataOre;
+        stampa += "\nDescrizione: " + this.descrizione;
+        stampa += "\nData Inizio: " + this.dataInizio;
+        stampa += "\nLink: " + link + "\n";
+
+        return stampa;
+    }
+
+    String getCSV() {
+        String stampa = "";
+        //stampa += "titolocorso;durataore;descrizione;datainizio;link\n";
+        stampa += this.titoloCorso + ";";
+        stampa += this.durataOre + ";";
+        stampa += this.descrizione + ";";
+        stampa += this.dataInizio.toString() + ";";
+        stampa += link + "\n";
+
+        return stampa;
+    }
+
     //ci mettere il numero di array
     void insertAlunno(Alunno alunno, int pos) {
         registro[pos] = alunno;
@@ -171,7 +194,10 @@ public class Corso {
 
     @Override
     public String toString() {
-        return "Corso\n\nTitolo Corso=" + titoloCorso + "\nDescrizione=" + descrizione + "\nDurata Ore=" + durataOre + "\nData Inizio=" + dataInizio;
+        return "Corso\n\nTitolo Corso=" + titoloCorso
+                + "\nDescrizione=" + descrizione
+                + "\nDurata Ore=" + durataOre
+                + "\nData Inizio=" + dataInizio;
     }
 
 }

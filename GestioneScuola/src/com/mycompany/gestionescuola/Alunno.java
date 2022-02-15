@@ -17,7 +17,7 @@ public class Alunno {
     private String cognome;
     private String mail;
     private String telefono;
-    private LocalDate dataInserimento = LocalDate.now();
+    private LocalDate dataInserimento;
     private Esame[] libretto = new Esame[30];
 
     public Alunno() {
@@ -26,6 +26,7 @@ public class Alunno {
     public Alunno(String nome, String cognome) {
         this.nome = nome != null ? nome : "NN";
         this.cognome = cognome != null ? cognome : "NN";
+        this.dataInserimento = LocalDate.now();
     }
 
     public Alunno(String nome, String cognome, String mail, String telefono) {
@@ -37,6 +38,7 @@ public class Alunno {
         Tools tools = new Tools();
         telefono = tools.checkTel(telefono, "+33");
         this.telefono = telefono != null ? telefono : "NN";
+        this.dataInserimento = LocalDate.now();
 
     }
 
@@ -91,12 +93,16 @@ public class Alunno {
             }
         }
     }
-    
-    
-    
 
     public void stampaAlunno() {
-        System.out.println("Nome=" + nome + "\nCognome=" + cognome + "\nMail=" + mail + "\nTelefone=" + telefono);
+        System.out.println("Nome=" + nome 
+                + "\nCognome=" + cognome 
+                + "\nMail=" + mail 
+                + "\nTelefone=" + telefono
+                + "\nData Inserimento=" + dataInserimento
+                + "\nTelefone=" + telefono
+        
+        );
     }
 
 }

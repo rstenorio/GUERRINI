@@ -29,7 +29,6 @@ public class MainGestioneScuola {
 
         c1.stampaRegistro();
         
-        
         Esame es = new Esame("Guerrini", 85, "Java");
         Alunno esaminando = c1.getRegistro()[0];
         esaminando.setLibretto(es);
